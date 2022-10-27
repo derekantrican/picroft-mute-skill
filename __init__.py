@@ -27,9 +27,6 @@ class PicroftMuteSkill(MycroftSkill):
             # (once to "align" the button state with the mute state, then again to change the mute state)
             self.muted = True
             self.handle_mute()
-        else: # TODO: in the final version, this will be removed (since the mic won't be on to hear an "unmute" intent)
-            self.muted = False
-            self.handle_unmute()
 
     def handle_mute(self):
         GPIO.output(12, GPIO.HIGH) # Turn on LED
