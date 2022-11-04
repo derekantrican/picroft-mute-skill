@@ -1,22 +1,35 @@
 
 skillMetadata:
   sections:
-    - name: Options << Name of section
-      fields:
-        - name: internal_python_variable_name
-          type: text
-          label: Setting Friendly Display Name
-          value: ""
-          placeholder: demo prompt in the input box
-    - name: Login << Name of another section
+    - name: GPIO pin numbers
       fields:
         - type: label
-          label: Just a little bit of extra info for the user to understand following settings
-        - name: username
-          type: text
-          label: Username
-          value: ""
-        - name: password
-          type: password
-          label: Password
-          value: ""
+          label: |
+            Choose the GPIO pin numbers to use for the button & LED. <i>NOTE: this uses the BOARD numbers, not BCM numbers.</i>
+            <br><br>You can reference <a href="https://pinout.xyz" target="_blank">pinout.xyz</a> (BOARD numbers are next to the pin, BCM numbers are in the name like "GPIO 18")
+        - name: button_pin
+          type: number
+          label: Button pin number
+          value: 10
+        - name: led_pin
+          type: number
+          label: LED pin number
+          value: 12
+    - name: Behavior
+      fields:
+        - type: label
+          label: Specify whether the LED "on" represents the muted state or the unmuted state
+        - name: led_mute_behavior
+          type: select
+          label: LED "on" represents
+          options: Muted|muted;Unmuted|unmuted
+          value: muted
+        - type: label
+          label: |
+            <i><strong>Not yet supported</strong></i> Specify whether the button you are using is a <a href="https://www.adafruit.com/product/367" target="_blank">push button</a> 
+            or a <a href="https://www.adafruit.com/product/1683" target="_blank">toggle button</a>
+        - name: button_type
+          type: select
+          label: Button type
+          options: Push button|push;Toggle button|toggle
+          value: toggle
